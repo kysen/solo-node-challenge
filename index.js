@@ -10,7 +10,6 @@ const STARWARS_API = 'http://swapi.dev/api/'
 app.use(bodyParser.json())
 
 let allPlanets = []
-let planetsWithResidents = []
 let nextPlanetPage = `${STARWARS_API}planets/?page=1`
 
 let allPeople = []
@@ -40,7 +39,6 @@ sortPeople = (people, sortParam) => {
   if (sortParam === "name") {
     sortedPeople = newArray.sort((a, b) => (a.name > b.name) ? 1 : -1)
   } else if (sortParam === "height") {
-    // sortedPeople = newArray.sort(function(a, b){return a.height - b.height})
     sortedPeople = newArray.sort(function(a, b){return /[A-Za-z]/.test(a.height) - /[A-Za-z]/.test(b.height) || a.height - b.height})
 
   } else if (sortParam === "mass") {
